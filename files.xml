@@ -1,0 +1,56 @@
+<xml>
+
+
+<files id="native-toolkit-sdl-mixer" >
+   <!-- SDL config ... -->
+   <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/sdl/include/configs/default/" unless="windows || mac || linux || rpi" />
+   <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/sdl/include/configs/linux/" if="linux" unless="rpi"/>
+   <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/sdl/include/configs/windows/" if="windows" />
+   <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/sdl/include/configs/mac/" if="mac" />
+   <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/sdl/include/configs/rpi/" if="rpi" />
+   <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/sdl/include/" />
+
+
+   <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/vorbis/include/" />
+   <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/ogg/include/" />
+   <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/modplug" />
+
+
+   <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/sdl-mixer/native_midi" />
+   <compilerflag value="-DHAVE_LIBC" />
+   <compilerflag value="-DOGG_MUSIC" />
+   <compilerflag value="-DMID_MUSIC" />
+   <compilerflag value="-DMODPLUG_MUSIC" />
+   <compilerflag value="-DWAV_MUSIC" />
+   <compilerflag value="-DUSE_NATIVE_MIDI" unless="linux" />
+   <compilerflag value='-DMODPLUG_HEADER="<modplug.h>"' />
+
+   <cache value="1" />
+   <file name="${NATIVE_TOOLKIT_PATH}/sdl-mixer/effect_position.c"  />
+   <file name="${NATIVE_TOOLKIT_PATH}/sdl-mixer/effect_stereoreverse.c" />
+   <file name="${NATIVE_TOOLKIT_PATH}/sdl-mixer/music_ogg.c" />
+   <file name="${NATIVE_TOOLKIT_PATH}/sdl-mixer/dynamic_ogg.c" />
+   <file name="${NATIVE_TOOLKIT_PATH}/sdl-mixer/dynamic_modplug.c" />
+   <file name="${NATIVE_TOOLKIT_PATH}/sdl-mixer/music_modplug.c" />
+   <file name="${NATIVE_TOOLKIT_PATH}/sdl-mixer/load_ogg.c" />
+   <file name="${NATIVE_TOOLKIT_PATH}/sdl-mixer/effects_internal.c" />
+   <file name="${NATIVE_TOOLKIT_PATH}/sdl-mixer/load_aiff.c" />
+   <file name="${NATIVE_TOOLKIT_PATH}/sdl-mixer/load_voc.c" />
+   <file name="${NATIVE_TOOLKIT_PATH}/sdl-mixer/mixer.c" />
+   <file name="${NATIVE_TOOLKIT_PATH}/sdl-mixer/music.c" />
+   <file name="${NATIVE_TOOLKIT_PATH}/sdl-mixer/wavestream.c" />
+
+   <file name="${NATIVE_TOOLKIT_PATH}/sdl-mixer/native_midi/native_midi_common.c" unless="linux"  />
+   <file name="${NATIVE_TOOLKIT_PATH}/sdl-mixer/native_midi/native_midi_macosx.c" if="macos"  />
+   <file name="${NATIVE_TOOLKIT_PATH}/sdl-mixer/native_midi/native_midi_win32.c" if="windows"  />
+
+</files>
+
+
+</xml>
+
+
+
+
+
+
