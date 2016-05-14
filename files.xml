@@ -2,14 +2,8 @@
 
 
 <files id="native-toolkit-sdl-mixer" >
-   <!-- SDL config ... -->
-   <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/sdl/include/configs/default/" unless="windows || mac || linux || rpi" />
-   <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/sdl/include/configs/linux/" if="linux" unless="rpi"/>
-   <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/sdl/include/configs/windows/" if="windows" />
-   <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/sdl/include/configs/mac/" if="mac" />
-   <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/sdl/include/configs/rpi/" if="rpi" />
+   <compilerflag value="-I${SDL_CONFIG_PATH}" if="SDL_CONFIG_PATH" />
    <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/sdl/include/" />
-
 
    <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/vorbis/include/" />
    <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/ogg/include/" />
