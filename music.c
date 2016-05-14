@@ -496,7 +496,12 @@ static Mix_MusicType detect_music_type(SDL_RWops *src)
 
     /* MIDI files have the magic four bytes "MThd" */
     if (strcmp((char *)magic, "MThd") == 0) {
+        // Patch - use modplug for midi if nothing better
+        #ifdef USE_NATIVE_MIDI
         return MUS_MID;
+        #else
+        return MUS_MOD;
+        #endif
     }
 
     if (detect_mp3(magic)) {
@@ -556,9 +561,16 @@ Mix_Music *Mix_LoadMUS(const char *file)
         } else if ( MIX_string_equals(ext, "MID") ||
                     MIX_string_equals(ext, "MIDI") ||
                     MIX_string_equals(ext, "KAR") ) {
+            // Patch - use modplug for midi if nothing better
+            #ifdef USE_NATIVE_MIDI
             type = MUS_MID;
+            #else
+            type = MUS_MOD;
+            #endif
         } else if ( MIX_string_equals(ext, "OGG") ) {
             type = MUS_OGG;
+        } else if ( MIX_string_equals(ext, "MOD") ) {
+            type = MUS_MOD;
         } else if ( MIX_string_equals(ext, "FLAC") ) {
             type = MUS_FLAC;
         } else  if ( MIX_string_equals(ext, "MPG") ||
