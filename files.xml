@@ -1,7 +1,20 @@
 <xml>
 
+<files id="native-toolkit-sdl-mixer-depends" >
+   <file name="${NATIVE_TOOLKIT_PATH}/sdl-mixer/SDL_mixer.h"  />
+</files>
 
-<files id="native-toolkit-sdl-mixer" >
+
+<files id="native-toolkit-sdl-mixer" tags="" >
+   <cache value="1" />
+   <tag value="${NATIVE_TOOLKIT_OPTIM_TAG}" if="NATIVE_TOOLKIT_OPTIM_TAG" />
+
+   <depend files="native-toolkit-modplug-depends" if="modplug" />
+   <depend files="native-toolkit-vorbis-depends" />
+   <depend files="native-toolkit-ogg-depends" />
+   <depend files="native-toolkit-sdl-depends" />
+   <depend files="native-toolkit-sdl-mixer-depends" />
+
    <compilerflag value="-I${SDL_CONFIG_PATH}" if="SDL_CONFIG_PATH" />
    <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/sdl/include/" />
 
