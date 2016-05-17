@@ -30,7 +30,6 @@
    <compilerflag value="-DMODPLUG_MUSIC" />
    <compilerflag value="-DWAV_MUSIC" />
    <compilerflag value="-DUSE_NATIVE_MIDI" unless="linux" />
-   <compilerflag value='-DMODPLUG_HEADER="<modplug.h>"' />
 
    <cache value="1" />
    <file name="${NATIVE_TOOLKIT_PATH}/sdl-mixer/effect_position.c"  />

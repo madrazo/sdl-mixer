@@ -21,11 +21,7 @@
 
 #ifdef MODPLUG_MUSIC
 
-#ifdef MODPLUG_HEADER
-#include MODPLUG_HEADER
-#else
-#include <libmodplug/modplug.h>
-#endif
+#include <modplug.h>
 
 typedef struct {
     int loaded;
