@@ -1454,10 +1454,10 @@ int Mix_SetPanning(int channel, Uint8 left, Uint8 right)
     if (f == NULL)
         return(0);
 
-    SDL_LockAudio();
+    Mix_LockAudio();
     args = get_position_arg(channel);
     if (!args) {
-        SDL_UnlockAudio();
+        Mix_UnlockAudio();
         return(0);
     }
 
@@ -1465,10 +1465,10 @@ int Mix_SetPanning(int channel, Uint8 left, Uint8 right)
     if ((args->distance_u8 == 255) && (left == 255) && (right == 255)) {
         if (args->in_use) {
             retval = _Mix_UnregisterEffect_locked(channel, f);
-            SDL_UnlockAudio();
+            Mix_UnlockAudio();
             return(retval);
         } else {
-            SDL_UnlockAudio();
+            Mix_UnlockAudio();
             return(1);
         }
     }
@@ -1484,7 +1484,7 @@ int Mix_SetPanning(int channel, Uint8 left, Uint8 right)
         retval=_Mix_RegisterEffect_locked(channel, f, _Eff_PositionDone, (void*)args);
     }
 
-    SDL_UnlockAudio();
+    Mix_UnlockAudio();
     return(retval);
 }
 
@@ -1502,10 +1502,10 @@ int Mix_SetDistance(int channel, Uint8 distance)
     if (f == NULL)
         return(0);
 
-    SDL_LockAudio();
+    Mix_LockAudio();
     args = get_position_arg(channel);
     if (!args) {
-        SDL_UnlockAudio();
+        Mix_UnlockAudio();
         return(0);
     }
 
@@ -1515,10 +1515,10 @@ int Mix_SetDistance(int channel, Uint8 distance)
     if ((distance == 255) && (args->left_u8 == 255) && (args->right_u8 == 255)) {
         if (args->in_use) {
             retval = _Mix_UnregisterEffect_locked(channel, f);
-            SDL_UnlockAudio();
+            Mix_UnlockAudio();
             return(retval);
         } else {
-            SDL_UnlockAudio();
+            Mix_UnlockAudio();
             return(1);
         }
     }
@@ -1530,7 +1530,7 @@ int Mix_SetDistance(int channel, Uint8 distance)
         retval = _Mix_RegisterEffect_locked(channel, f, _Eff_PositionDone, (void *) args);
     }
 
-    SDL_UnlockAudio();
+    Mix_UnlockAudio();
     return(retval);
 }
 
@@ -1551,10 +1551,10 @@ int Mix_SetPosition(int channel, Sint16 angle, Uint8 distance)
 
     angle = SDL_abs(angle) % 360;  /* make angle between 0 and 359. */
 
-    SDL_LockAudio();
+    Mix_LockAudio();
     args = get_position_arg(channel);
     if (!args) {
-        SDL_UnlockAudio();
+        Mix_UnlockAudio();
         return(0);
     }
 
@@ -1562,10 +1562,10 @@ int Mix_SetPosition(int channel, Sint16 angle, Uint8 distance)
     if ((!distance) && (!angle)) {
         if (args->in_use) {
             retval = _Mix_UnregisterEffect_locked(channel, f);
-            SDL_UnlockAudio();
+            Mix_UnlockAudio();
             return(retval);
         } else {
-            SDL_UnlockAudio();
+            Mix_UnlockAudio();
             return(1);
         }
     }
@@ -1611,7 +1611,7 @@ int Mix_SetPosition(int channel, Sint16 angle, Uint8 distance)
         retval = _Mix_RegisterEffect_locked(channel, f, _Eff_PositionDone, (void *) args);
     }
 
-    SDL_UnlockAudio();
+    Mix_UnlockAudio();
     return(retval);
 }
 

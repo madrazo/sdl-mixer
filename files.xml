@@ -21,7 +21,7 @@
    <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/vorbis/include/" />
    <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/ogg/include/" />
    <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/modplug" />
-
+   <compilerflag value="-DMODPLUG_HEADER=<modplug.h>" if="modplug" />
 
    <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/sdl-mixer/native_midi" unless="winrt" />
    <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/sdl-mixer/timidity" if="winrt" />
