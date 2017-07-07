@@ -1,6 +1,6 @@
 /*
   SDL_mixer:  An audio mixer library based on the SDL library
-  Copyright (C) 1997-2016 Sam Lantinga <slouken@libsdl.org>
+  Copyright (C) 1997-2017 Sam Lantinga <slouken@libsdl.org>
 
   This software is provided 'as-is', without any express or implied
   warranty.  In no event will the authors be held liable for any damages
@@ -31,8 +31,9 @@
 #include <string.h>
 
 #include "SDL.h"
-#include "SDL_mixer.h"
 #include "SDL_endian.h"
+#include "SDL_mixer.h"
+#include "mixer.h"
 
 #define __MIX_INTERNAL_EFFECT__
 #include "effects_internal.h"

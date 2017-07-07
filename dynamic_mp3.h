@@ -1,6 +1,6 @@
 /*
   SDL_mixer:  An audio mixer library based on the SDL library
-  Copyright (C) 1997-2016 Sam Lantinga <slouken@libsdl.org>
+  Copyright (C) 1997-2017 Sam Lantinga <slouken@libsdl.org>
 
   This software is provided 'as-is', without any express or implied
   warranty.  In no event will the authors be held liable for any damages
@@ -20,6 +20,13 @@
 */
 
 #ifdef MP3_MUSIC
+
+#if SDL_VERSION_ATLEAST(2, 0, 0)
+/* Forward declaration for SDL 2.0  because struct is not available there but
+   still used in a file included with smpeg.h. May not compile if missing. */
+typedef struct SDL_Overlay SDL_Overlay;
+#endif
+
 #include "smpeg.h"
 
 typedef struct {
